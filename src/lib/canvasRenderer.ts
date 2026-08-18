@@ -1,24 +1,6 @@
 import { FilmType, FrameRatio } from '@/types';
 import { FILM_FILTERS, FRAME_RATIOS, POLAROID_BORDER } from './filmFilters';
 
-function parseCSSFilter(filter: string): Record<string, string> {
-  const result: Record<string, string> = {};
-  if (filter === 'none') return result;
-  const parts = filter.match(/(\w+)\(([^)]+)\)/g) || [];
-  parts.forEach(part => {
-    const match = part.match(/(\w+)\(([^)]+)\)/);
-    if (match) result[match[1]] = match[2];
-  });
-  return result;
-}
-
-function applyCanvasFilter(
-  ctx: CanvasRenderingContext2D,
-  filter: string
-): void {
-  ctx.filter = filter;
-}
-
 function addGrain(
   ctx: CanvasRenderingContext2D,
   x: number,

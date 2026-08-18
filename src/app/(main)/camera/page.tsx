@@ -4,19 +4,18 @@ import { useRouter } from 'next/navigation';
 import { useCamera } from '@/hooks/useCamera';
 import { useCameraStore } from '@/stores/cameraStore';
 import { useAuthStore } from '@/stores/authStore';
-import { FILM_FILTERS, FILM_NAMES, FRAME_RATIOS } from '@/lib/filmFilters';
+import { FILM_FILTERS, FILM_NAMES } from '@/lib/filmFilters';
 import { FilmType, FrameRatio } from '@/types';
 
 export default function CameraPage() {
   const router = useRouter();
   const { user, initialized } = useAuthStore();
   const { filmType, frameRatio, setFilmType, setFrameRatio, setCapture } = useCameraStore();
-  const { videoRef, startCamera, flipCamera, capture, cameraError, isReady, toggleFlash, flashEnabled } = useCamera();
+  const { videoRef, startCamera, flipCamera, capture, cameraError, toggleFlash, flashEnabled } = useCamera();
   const [step, setStep] = useState<'camera' | 'editor'>('camera');
   const [capturedUrl, setCapturedUrl] = useState<string | null>(null);
   const [caption, setCaption] = useState('');
   const [captionColor, setCaptionColor] = useState('#1d1c17');
-  const [publishing, setPublishing] = useState(false);
 
   useEffect(() => {
     if (!initialized) return; // Wait for auth to finish loading

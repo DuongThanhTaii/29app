@@ -8,7 +8,6 @@ import { compressImage } from '@/lib/imageCompressor';
 import { uploadAvatarToCloudinary } from '@/lib/cloudinaryUpload';
 import { saveMockUser } from '@/lib/mockAuth';
 import { User } from '@/types';
-import Avatar from '@/components/ui/Avatar';
 
 const USE_MOCK = process.env.NEXT_PUBLIC_USE_EMULATOR === 'true';
 

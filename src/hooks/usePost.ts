@@ -27,7 +27,6 @@ export function usePost() {
     try {
       // Compress
       const compressed = await compressImage(params.blob, 1200);
-      const dataUrl = await blobToDataUrl(compressed);
 
       // Write to IndexedDB first (Local-First)
       const localId = await localDB.posts.add({
@@ -82,12 +81,4 @@ export function usePost() {
 
   return { createPost, likePost, isLikedByMe };
 }
-
-function blobToDataUrl(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
 }

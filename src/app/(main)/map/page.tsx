@@ -1,13 +1,11 @@
 'use client';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { collection, query, limit, onSnapshot } from 'firebase/firestore';
 import { firestore } from '@/lib/firebase';
-import { PROVINCES, searchProvinces, findProvinceByCoords } from '@/lib/provinceData';
+import { PROVINCES, searchProvinces } from '@/lib/provinceData';
 import { useAuthStore } from '@/stores/authStore';
 import { MapPin, Province } from '@/types';
-
-const STATS_MOCK = { total: 0, provinces: 0 };
 
 export default function MapPage() {
   const router = useRouter();
