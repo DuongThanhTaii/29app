@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useCamera } from '@/hooks/useCamera';
 import { useCameraStore } from '@/stores/cameraStore';
 import { useAuthStore } from '@/stores/authStore';
+import { usePost } from '@/hooks/usePost';
 import { FILM_FILTERS, FILM_NAMES, FRAME_TYPES, INSTAX_COLORS } from '@/lib/filmFilters';
 import { FilmType, FrameType } from '@/types';
 import { DigitalIcon, FujiIcon, KodakIcon, LeicaIcon, PolaroidIcon } from '@/components/ui/CameraIcons';
