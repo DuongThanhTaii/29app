@@ -1,5 +1,5 @@
 export type FilmType = 'original' | 'kodak' | 'fuji' | 'polaroid' | 'ilford';
-export type FrameRatio = '3:4' | '1:1' | '16:9';
+export type FrameType = 'instax-mini' | 'instax-square' | 'instax-wide' | 'polaroid-600';
 export type NotifType = 'like' | 'follow' | 'comment';
 export type PublishTarget = 'wall' | 'map' | 'both';
 
@@ -23,7 +23,8 @@ export interface Post {
   imageBlob?: Blob;
   caption?: string;
   filmType: FilmType;
-  frameRatio: FrameRatio;
+  frameType: FrameType;
+  frameColor: string;
   location?: string;
   provinceCode?: string;
   lat?: number;

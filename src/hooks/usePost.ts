@@ -4,7 +4,7 @@ import { compressImage } from '@/lib/imageCompressor';
 import { syncEngine } from '@/lib/syncEngine';
 import { localDB } from '@/lib/db';
 import { useAuthStore } from '@/stores/authStore';
-import { FilmType, FrameRatio, PublishTarget } from '@/types';
+import { FilmType, FrameType, PublishTarget } from '@/types';
 import { parseFirebaseError } from '@/lib/errorMessages';
 
 export function usePost() {
@@ -15,7 +15,8 @@ export function usePost() {
     caption: string;
     captionColor: string;
     filmType: FilmType;
-    frameRatio: FrameRatio;
+    frameType: FrameType;
+    frameColor: string;
     target: PublishTarget;
     lat?: number;
     lng?: number;
@@ -35,7 +36,8 @@ export function usePost() {
         imageBlob: compressed,
         caption: params.caption.slice(0, 30),
         filmType: params.filmType,
-        frameRatio: params.frameRatio,
+        frameType: params.frameType,
+        frameColor: params.frameColor,
         location: params.location || params.provinceCode || '',
         provinceCode: params.provinceCode,
         lat: params.lat,

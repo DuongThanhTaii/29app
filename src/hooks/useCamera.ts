@@ -56,14 +56,14 @@ export function useCamera() {
     await startCamera(next);
   }, [facingMode, startCamera]);
 
-  const capture = useCallback((filmType: FilmType, frameRatio: '3:4' | '1:1' | '16:9'): Promise<{ blob: Blob; dataUrl: string }> => {
+  const capture = useCallback((filmType: FilmType, frameType: 'instax-mini' | 'instax-square' | 'instax-wide' | 'polaroid-600'): Promise<{ blob: Blob; url: string }> => {
     return new Promise((resolve, reject) => {
       const video = videoRef.current;
       if (!video) return reject(new Error('Camera chưa sẵn sàng'));
 
       const canvas = document.createElement('canvas');
-      const ratioMap = { '3:4': 3/4, '1:1': 1, '16:9': 16/9 };
-      const ratio = ratioMap[frameRatio];
+      const ratioMap = { 'instax-mini': 3/4, 'instax-square': 1, 'instax-wide': 4/3, 'polaroid-600': 1 };
+      const ratio = ratioMap[frameType];
       const vw = video.videoWidth || 640;
       const vh = video.videoHeight || 480;
 
@@ -87,9 +87,9 @@ export function useCamera() {
       ctx.drawImage(video, sx, sy, sw, sh, 0, 0, sw, sh);
       ctx.filter = 'none';
 
-      const dataUrl = canvas.toDataURL('image/webp', 0.9);
+      const url = canvas.toDataURL('image/webp', 0.9);
       canvas.toBlob((blob) => {
-        if (blob) resolve({ blob, dataUrl });
+        if (blob) resolve({ blob, url });
         else reject(new Error('Không thể chụp ảnh'));
       }, 'image/webp', 0.9);
     });

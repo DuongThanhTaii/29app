@@ -1,15 +1,15 @@
-import { FilmType, FrameRatio } from '@/types';
-import { FILM_FILTERS, FRAME_RATIOS, POLAROID_BORDER } from './filmFilters';
+import { FilmType, FrameType } from '@/types';
+import { FILM_FILTERS, FRAME_TYPES } from './filmFilters';
 
 function addGrain(
   ctx: CanvasRenderingContext2D,
   x: number,
   y: number,
-  width: number,
-  height: number,
+  w: number,
+  h: number,
   intensity: number = 0.03
 ): void {
-  const imageData = ctx.getImageData(x, y, width, height);
+  const imageData = ctx.getImageData(x, y, w, h);
   const data = imageData.data;
   for (let i = 0; i < data.length; i += 4) {
     const noise = (Math.random() - 0.5) * intensity * 255;
@@ -22,7 +22,8 @@ function addGrain(
 
 export interface RenderOptions {
   filmType: FilmType;
-  frameRatio: FrameRatio;
+  frameType: FrameType;
+  frameColor: string;
   caption?: string;
   captionColor?: string;
 }
@@ -33,8 +34,7 @@ export function renderPolaroid(
   options: RenderOptions
 ): void {
   const dpr = window.devicePixelRatio || 1;
-  const { w, h } = FRAME_RATIOS[options.frameRatio];
-  const { sides, top, bottom } = POLAROID_BORDER;
+  const { w, h, sides, top, bottom } = FRAME_TYPES[options.frameType];
 
   const totalW = w + sides * 2;
   const totalH = h + top + bottom;
@@ -48,9 +48,13 @@ export function renderPolaroid(
   const ctx = canvas.getContext('2d')!;
   ctx.scale(dpr, dpr);
 
-  // White polaroid background
-  ctx.fillStyle = '#ffffff';
+  // Background frame color
+  ctx.fillStyle = options.frameColor;
   ctx.fillRect(0, 0, totalW, totalH);
+
+  // Draw black behind photo just in case
+  ctx.fillStyle = '#0a0a0a';
+  ctx.fillRect(sides, top, w, h);
 
   // Apply film filter and draw photo
   ctx.filter = FILM_FILTERS[options.filmType];
@@ -78,8 +82,8 @@ export function renderPolaroid(
     ctx.restore();
   }
 
-  // Border
-  ctx.strokeStyle = '#e0d5c5';
+  // Border (slight stroke to pop frame)
+  ctx.strokeStyle = 'rgba(0,0,0,0.1)';
   ctx.lineWidth = 1;
   ctx.strokeRect(0.5, 0.5, totalW - 1, totalH - 1);
 }

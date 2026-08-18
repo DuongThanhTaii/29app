@@ -1,4 +1,4 @@
-import { FilmType, FrameRatio } from '@/types';
+import { FilmType, FrameType } from '@/types';
 
 export const FILM_FILTERS: Record<FilmType, string> = {
   original: 'none',
@@ -9,24 +9,28 @@ export const FILM_FILTERS: Record<FilmType, string> = {
 } as const;
 
 export const FILM_NAMES: Record<FilmType, string> = {
-  original: 'Original',
-  kodak: 'Kodak Gold',
-  fuji: 'Fuji Superia',
-  polaroid: 'Polaroid 600',
-  ilford: 'Ilford B&W',
+  original: 'Digital',
+  kodak: 'Kodak Ektar H35',
+  fuji: 'Fujifilm X100V',
+  polaroid: 'Polaroid Now',
+  ilford: 'Leica M6',
 } as const;
 
-export const FRAME_RATIOS: Record<FrameRatio, { w: number; h: number; css: string; label: string }> = {
-  '3:4': { w: 900, h: 1200, css: 'aspect-[3/4]', label: '3:4' },
-  '1:1': { w: 900, h: 900, css: 'aspect-square', label: '1:1' },
-  '16:9': { w: 900, h: 506, css: 'aspect-video', label: '16:9' },
+export const FRAME_TYPES: Record<FrameType, { w: number; h: number; css: string; label: string; sides: number; top: number; bottom: number }> = {
+  'instax-mini': { w: 900, h: 1200, css: 'aspect-[3/4]', label: 'Instax Mini', sides: 60, top: 60, bottom: 200 },
+  'instax-square': { w: 900, h: 900, css: 'aspect-square', label: 'Instax Square', sides: 60, top: 60, bottom: 180 },
+  'instax-wide': { w: 1200, h: 900, css: 'aspect-[4/3]', label: 'Instax Wide', sides: 80, top: 60, bottom: 160 },
+  'polaroid-600': { w: 900, h: 900, css: 'aspect-square', label: 'Polaroid 600', sides: 40, top: 40, bottom: 220 },
 } as const;
 
-export const POLAROID_BORDER = {
-  sides: 60,   // left & right
-  top: 60,     // top
-  bottom: 120, // bottom (caption area)
-} as const;
+export const INSTAX_COLORS = [
+  { label: 'Classic White', value: '#FBFBF8' },
+  { label: 'Matte Black', value: '#1A1A1A' },
+  { label: 'Macaron Blue', value: '#AEC6CF' },
+  { label: 'Macaron Pink', value: '#FCD3DB' },
+  { label: 'Macaron Yellow', value: '#FDFD96' },
+  { label: 'Mint Green', value: '#C1E1C1' },
+] as const;
 
 export const CAPTION_COLORS = [
   { label: 'Đen', value: '#1d1c17' },
