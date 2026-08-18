@@ -1,11 +1,11 @@
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuthStore } from '@/stores/authStore';
 
 export default function HomePage() {
   const router = useRouter();
-  const { user, loading, initialized } = useAuth();
+  const { user, loading, initialized } = useAuthStore();
 
   useEffect(() => {
     if (!initialized || loading) return;

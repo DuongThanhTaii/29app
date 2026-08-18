@@ -21,6 +21,8 @@ export const viewport: Viewport = {
   themeColor: '#32302b',
 };
 
+import AuthProvider from '@/components/providers/AuthProvider';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi">
@@ -33,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
