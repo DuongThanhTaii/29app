@@ -81,4 +81,3 @@ export function usePost() {
 
   return { createPost, likePost, isLikedByMe };
 }
-}
