@@ -2,26 +2,188 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --surface: #fef9f1;
+    --surface-dim: #ded9d2;
+    --surface-bright: #fef9f1;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f8f3eb;
+    --surface-container: #f2ede5;
+    --surface-container-high: #ece8e0;
+    --surface-container-highest: #e7e2da;
+    --on-surface: #1d1c17;
+    --on-surface-variant: #444748;
+    --inverse-surface: #32302b;
+    --inverse-on-surface: #f5f0e8;
+    --outline: #747878;
+    --outline-variant: #c4c7c7;
+    --primary: #000000;
+    --on-primary: #ffffff;
+    --primary-container: #1c1b1b;
+    --on-primary-container: #858383;
+    --inverse-primary: #c8c6c5;
+    --secondary: #b71032;
+    --on-secondary: #ffffff;
+    --secondary-container: #da3148;
+    --on-secondary-container: #fffbff;
+    --tertiary: #735c00;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #cca730;
+    --on-tertiary-container: #4f3e00;
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+    --background: #fef9f1;
+    --on-background: #1d1c17;
+    --surface-tint: #5f5e5e;
+    --surface-variant: #e7e2da;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .vintage-texture {
+    background-color: #f5f0e8;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  .blueprint-grid {
+    background-image:
+      linear-gradient(#e0d5c5 1px, transparent 1px),
+      linear-gradient(90deg, #e0d5c5 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .hard-shadow {
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .polaroid-card {
+    background: #ffffff;
+    border: 1px solid #e0d5c5;
+    padding: 12px 12px 40px 12px;
+    border-radius: 2px;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .film-grain {
+    position: relative;
+  }
+  .film-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .stamp-badge {
+    display: inline-block;
+    border: 1px dashed #747878;
+    padding: 4px 8px;
+    transform: rotate(-3deg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .vintage-input {
+    border: none;
+    border-bottom: 1px solid #1a1a1a;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+  }
+  .vintage-input:focus {
+    box-shadow: none;
+    border-bottom-width: 2px;
+  }
+
+  .cork-bg {
+    background-color: #d4a574;
+    background-image:
+      radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.05) 100%);
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Global scrollbar hide */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Snap scroll for feed */
+.snap-feed {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100dvh;
+  height: 100vh; /* fallback */
+}
+.snap-feed-item {
+  scroll-snap-align: start;
+  height: 100dvh;
+  height: 100vh; /* fallback */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pulse animation for map pins */
+@keyframes pin-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+.pin-pulse {
+  animation: pin-pulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Heart burst animation */
+@keyframes heart-burst {
+  0% { transform: scale(0) rotate(-15deg); opacity: 1; }
+  50% { transform: scale(1.4) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1.2) rotate(0deg); opacity: 0; }
+}
+.heart-burst {
+  animation: heart-burst 0.65s ease-out forwards;
+}
+
+/* Thumbtack */
+.thumbtack {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #999);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pin-pulse, .heart-burst {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

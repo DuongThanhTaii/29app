@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 900" width="400" height="900" role="img" aria-label="Bản đồ Việt Nam">
+  <defs>
+    <style>
+      .province { fill: #e8ddd0; stroke: #c4b5a0; stroke-width: 0.8; cursor: pointer; transition: fill 0.2s; }
+      .province:hover { fill: #d4c4b0; }
+      .province.active { fill: #b71032; opacity: 0.7; }
+      .province.has-posts { fill: #ddd0c0; }
+    </style>
+  </defs>
+
+  <!-- MIỀN BẮC -->
+  <!-- Lào Cai -->
+  <path id="province-LC" class="province" data-name="Lào Cai" data-region="north"
+    d="M60,40 L90,35 L105,45 L100,65 L80,70 L60,65 Z"/>
+  <!-- Hà Giang -->
+  <path id="province-HG" class="province" data-name="Hà Giang" data-region="north"
+    d="M105,30 L130,25 L145,35 L140,55 L120,60 L105,50 Z"/>
+  <!-- Cao Bằng -->
+  <path id="province-CB" class="province" data-name="Cao Bằng" data-region="north"
+    d="M145,30 L175,25 L185,40 L175,55 L155,58 L140,50 Z"/>
+  <!-- Lạng Sơn -->
+  <path id="province-LS" class="province" data-name="Lạng Sơn" data-region="north"
+    d="M175,40 L200,35 L210,55 L200,70 L180,72 L170,60 Z"/>
+  <!-- Tuyên Quang -->
+  <path id="province-TQ" class="province" data-name="Tuyên Quang" data-region="north"
+    d="M105,55 L125,52 L135,65 L125,80 L108,82 L100,70 Z"/>
+  <!-- Bắc Kạn -->
+  <path id="province-BK" class="province" data-name="Bắc Kạn" data-region="north"
+    d="M135,50 L155,48 L165,62 L158,75 L140,78 L130,68 Z"/>
+  <!-- Thái Nguyên -->
+  <path id="province-TN" class="province" data-name="Thái Nguyên" data-region="north"
+    d="M155,65 L175,62 L182,75 L172,88 L155,90 L148,78 Z"/>
+  <!-- Quảng Ninh -->
+  <path id="province-QN" class="province" data-name="Quảng Ninh" data-region="north"
+    d="M178,65 L210,60 L225,75 L215,90 L195,95 L178,88 Z"/>
+  <!-- Yên Bái -->
+  <path id="province-YB" class="province" data-name="Yên Bái" data-region="north"
+    d="M75,68 L105,65 L115,82 L105,98 L80,100 L70,85 Z"/>
+  <!-- Phú Thọ -->
+  <path id="province-PT" class="province" data-name="Phú Thọ" data-region="north"
+    d="M105,82 L130,78 L138,92 L128,105 L108,108 L100,95 Z"/>
+  <!-- Vĩnh Phúc -->
+  <path id="province-VP" class="province" data-name="Vĩnh Phúc" data-region="north"
+    d="M130,88 L155,85 L160,98 L150,108 L132,110 L125,100 Z"/>
+  <!-- Bắc Ninh -->
+  <path id="province-BN" class="province" data-name="Bắc Ninh" data-region="north"
+    d="M158,85 L175,83 L180,96 L172,105 L158,106 L153,96 Z"/>
+  <!-- Bắc Giang -->
+  <path id="province-BG" class="province" data-name="Bắc Giang" data-region="north"
+    d="M158,70 L182,67 L192,80 L182,92 L165,94 L155,84 Z"/>
+  <!-- Hà Nội -->
+  <path id="province-HN" class="province" data-name="Hà Nội" data-region="north"
+    d="M128,100 L155,97 L162,112 L150,122 L130,124 L120,112 Z"/>
+  <!-- Hưng Yên -->
+  <path id="province-HY" class="province" data-name="Hưng Yên" data-region="north"
+    d="M155,108 L172,106 L177,118 L168,128 L153,128 L148,118 Z"/>
+  <!-- Hải Dương -->
+  <path id="province-HD" class="province" data-name="Hải Dương" data-region="north"
+    d="M172,98 L192,95 L198,108 L190,120 L174,122 L168,112 Z"/>
+  <!-- Hải Phòng -->
+  <path id="province-HP" class="province" data-name="Hải Phòng" data-region="north"
+    d="M192,108 L212,105 L220,118 L210,130 L194,132 L188,120 Z"/>
+  <!-- Thái Bình -->
+  <path id="province-TB" class="province" data-name="Thái Bình" data-region="north"
+    d="M168,125 L190,122 L196,135 L185,145 L168,145 L162,135 Z"/>
+  <!-- Nam Định -->
+  <path id="province-ND" class="province" data-name="Nam Định" data-region="north"
+    d="M148,128 L168,125 L172,138 L162,150 L146,150 L140,140 Z"/>
+  <!-- Hà Nam -->
+  <path id="province-HNam" class="province" data-name="Hà Nam" data-region="north"
+    d="M128,120 L150,118 L155,130 L145,142 L128,142 L122,132 Z"/>
+  <!-- Ninh Bình -->
+  <path id="province-NB" class="province" data-name="Ninh Bình" data-region="north"
+    d="M128,140 L150,138 L155,152 L144,162 L128,162 L120,152 Z"/>
+  <!-- Sơn La -->
+  <path id="province-SL" class="province" data-name="Sơn La" data-region="north"
+    d="M45,72 L82,68 L90,90 L78,112 L45,115 L35,95 Z"/>
+  <!-- Điện Biên -->
+  <path id="province-DB" class="province" data-name="Điện Biên" data-region="north"
+    d="M30,48 L60,42 L68,65 L55,82 L28,80 L20,62 Z"/>
+  <!-- Lai Châu -->
+  <path id="province-LCh" class="province" data-name="Lai Châu" data-region="north"
+    d="M35,30 L65,25 L72,45 L58,60 L35,58 L25,44 Z"/>
+  <!-- Hòa Bình -->
+  <path id="province-HB" class="province" data-name="Hòa Bình" data-region="north"
+    d="M90,100 L122,96 L128,118 L116,132 L90,132 L82,118 Z"/>
+
+  <!-- MIỀN TRUNG -->
+  <!-- Thanh Hóa -->
+  <path id="province-TH" class="province" data-name="Thanh Hóa" data-region="central"
+    d="M90,145 L148,140 L155,165 L140,182 L90,185 L80,168 Z"/>
+  <!-- Nghệ An -->
+  <path id="province-NA" class="province" data-name="Nghệ An" data-region="central"
+    d="M80,182 L145,178 L148,205 L132,222 L80,225 L68,208 Z"/>
+  <!-- Hà Tĩnh -->
+  <path id="province-HT" class="province" data-name="Hà Tĩnh" data-region="central"
+    d="M100,222 L145,218 L148,240 L135,255 L100,258 L90,242 Z"/>
+  <!-- Quảng Bình -->
+  <path id="province-QB" class="province" data-name="Quảng Bình" data-region="central"
+    d="M108,255 L148,250 L150,272 L138,285 L108,288 L98,272 Z"/>
+  <!-- Quảng Trị -->
+  <path id="province-QT" class="province" data-name="Quảng Trị" data-region="central"
+    d="M115,285 L152,280 L155,300 L142,312 L115,315 L105,300 Z"/>
+  <!-- Thừa Thiên Huế -->
+  <path id="province-TTH" class="province" data-name="Thừa Thiên Huế" data-region="central"
+    d="M118,312 L158,308 L162,328 L148,342 L118,345 L108,330 Z"/>
+  <!-- Đà Nẵng -->
+  <path id="province-DN" class="province" data-name="Đà Nẵng" data-region="central"
+    d="M148,340 L170,336 L172,352 L162,360 L148,362 L142,352 Z"/>
+  <!-- Quảng Nam -->
+  <path id="province-QNam" class="province" data-name="Quảng Nam" data-region="central"
+    d="M120,355 L168,350 L175,378 L158,395 L118,398 L108,380 Z"/>
+  <!-- Quảng Ngãi -->
+  <path id="province-QNg" class="province" data-name="Quảng Ngãi" data-region="central"
+    d="M128,395 L172,390 L176,415 L160,428 L128,430 L118,415 Z"/>
+  <!-- Bình Định -->
+  <path id="province-BD" class="province" data-name="Bình Định" data-region="central"
+    d="M135,428 L175,423 L178,450 L162,465 L135,468 L125,450 Z"/>
+  <!-- Phú Yên -->
+  <path id="province-PY" class="province" data-name="Phú Yên" data-region="central"
+    d="M140,465 L178,460 L180,485 L165,498 L140,500 L130,485 Z"/>
+  <!-- Khánh Hòa -->
+  <path id="province-KH" class="province" data-name="Khánh Hòa" data-region="central"
+    d="M142,498 L180,493 L183,525 L168,540 L142,542 L132,525 Z"/>
+  <!-- Ninh Thuận -->
+  <path id="province-NTh" class="province" data-name="Ninh Thuận" data-region="central"
+    d="M148,540 L185,535 L188,558 L172,572 L148,574 L138,558 Z"/>
+  <!-- Bình Thuận -->
+  <path id="province-BTh" class="province" data-name="Bình Thuận" data-region="central"
+    d="M152,572 L196,565 L202,598 L185,615 L152,618 L140,600 Z"/>
+  <!-- Kon Tum (Tây Nguyên) -->
+  <path id="province-KT" class="province" data-name="Kon Tum" data-region="central-highlands"
+    d="M100,340 L135,335 L142,365 L128,382 L98,385 L88,368 Z"/>
+  <!-- Gia Lai -->
+  <path id="province-GL" class="province" data-name="Gia Lai" data-region="central-highlands"
+    d="M100,382 L138,378 L145,410 L128,428 L98,430 L88,412 Z"/>
+  <!-- Đắk Lắk -->
+  <path id="province-DL" class="province" data-name="Đắk Lắk" data-region="central-highlands"
+    d="M100,428 L140,423 L148,458 L130,475 L98,478 L88,460 Z"/>
+  <!-- Đắk Nông -->
+  <path id="province-DN2" class="province" data-name="Đắk Nông" data-region="central-highlands"
+    d="M100,475 L138,470 L142,500 L125,515 L98,518 L88,502 Z"/>
+  <!-- Lâm Đồng -->
+  <path id="province-LamD" class="province" data-name="Lâm Đồng" data-region="central-highlands"
+    d="M135,490 L175,485 L180,525 L162,542 L132,545 L122,525 Z"/>
+
+  <!-- MIỀN NAM -->
+  <!-- Tây Ninh -->
+  <path id="province-TayN" class="province" data-name="Tây Ninh" data-region="south"
+    d="M115,608 L148,602 L152,628 L138,642 L112,645 L105,628 Z"/>
+  <!-- Bình Phước -->
+  <path id="province-BP" class="province" data-name="Bình Phước" data-region="south"
+    d="M148,595 L182,588 L188,618 L172,632 L148,635 L138,618 Z"/>
+  <!-- Bình Dương -->
+  <path id="province-BDuong" class="province" data-name="Bình Dương" data-region="south"
+    d="M148,632 L172,628 L178,652 L165,665 L148,668 L140,652 Z"/>
+  <!-- Đồng Nai -->
+  <path id="province-DongN" class="province" data-name="Đồng Nai" data-region="south"
+    d="M172,620 L205,612 L212,645 L196,660 L172,663 L162,648 Z"/>
+  <!-- Bà Rịa-Vũng Tàu -->
+  <path id="province-BRVT" class="province" data-name="Bà Rịa-Vũng Tàu" data-region="south"
+    d="M200,645 L228,638 L235,665 L220,678 L198,680 L190,665 Z"/>
+  <!-- TP. Hồ Chí Minh -->
+  <path id="province-HCM" class="province" data-name="TP. Hồ Chí Minh" data-region="south"
+    d="M148,662 L178,658 L185,682 L170,696 L148,698 L138,682 Z"/>
+  <!-- Long An -->
+  <path id="province-LA" class="province" data-name="Long An" data-region="south"
+    d="M120,675 L152,670 L158,698 L142,715 L118,718 L108,700 Z"/>
+  <!-- Tiền Giang -->
+  <path id="province-TiG" class="province" data-name="Tiền Giang" data-region="south"
+    d="M150,698 L182,693 L188,715 L172,728 L148,730 L140,715 Z"/>
+  <!-- Bến Tre -->
+  <path id="province-BenT" class="province" data-name="Bến Tre" data-region="south"
+    d="M168,725 L198,720 L202,742 L188,755 L165,758 L158,742 Z"/>
+  <!-- Vĩnh Long -->
+  <path id="province-VL" class="province" data-name="Vĩnh Long" data-region="south"
+    d="M148,728 L172,724 L176,745 L162,758 L146,760 L140,745 Z"/>
+  <!-- Đồng Tháp -->
+  <path id="province-DT" class="province" data-name="Đồng Tháp" data-region="south"
+    d="M120,712 L152,708 L158,732 L142,748 L118,750 L108,734 Z"/>
+  <!-- An Giang -->
+  <path id="province-AG" class="province" data-name="An Giang" data-region="south"
+    d="M95,725 L128,720 L135,745 L118,760 L92,762 L82,745 Z"/>
+  <!-- Kiên Giang -->
+  <path id="province-KiG" class="province" data-name="Kiên Giang" data-region="south"
+    d="M72,750 L108,744 L115,775 L96,792 L70,795 L60,775 Z"/>
+  <!-- Cần Thơ -->
+  <path id="province-CT" class="province" data-name="Cần Thơ" data-region="south"
+    d="M128,748 L152,744 L156,766 L142,778 L126,780 L120,766 Z"/>
+  <!-- Hậu Giang -->
+  <path id="province-HauG" class="province" data-name="Hậu Giang" data-region="south"
+    d="M138,775 L162,770 L165,792 L152,804 L136,806 L130,792 Z"/>
+  <!-- Sóc Trăng -->
+  <path id="province-ST" class="province" data-name="Sóc Trăng" data-region="south"
+    d="M152,800 L178,795 L182,818 L168,832 L150,834 L144,818 Z"/>
+  <!-- Trà Vinh -->
+  <path id="province-TV" class="province" data-name="Trà Vinh" data-region="south"
+    d="M165,758 L192,752 L196,775 L182,788 L165,790 L158,775 Z"/>
+  <!-- Bạc Liêu -->
+  <path id="province-BacL" class="province" data-name="Bạc Liêu" data-region="south"
+    d="M145,832 L172,826 L175,850 L160,862 L142,864 L136,848 Z"/>
+  <!-- Cà Mau -->
+  <path id="province-CM" class="province" data-name="Cà Mau" data-region="south"
+    d="M125,855 L158,850 L162,878 L145,895 L122,898 L112,878 Z"/>
+
+  <!-- Coastal line decoration -->
+  <path d="M215,88 Q225,150 222,200 Q218,250 220,300 Q222,350 218,400 Q215,450 218,500 Q220,550 215,600 Q210,650 215,700" 
+    fill="none" stroke="#c4b5a0" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.4"/>
+
+  <!-- Province labels (hidden by default, shown on hover via JS) -->
+  <g id="province-labels" opacity="0" pointer-events="none">
+    <text x="75" y="56" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">LC</text>
+    <text x="168" y="112" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">HN</text>
+    <text x="118" y="172" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">TH</text>
+    <text x="164" y="355" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">ĐN</text>
+    <text x="168" y="684" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">HCM</text>
+    <text x="138" y="878" font-size="5" fill="#444748" font-family="JetBrains Mono" text-anchor="middle">CM</text>
+  </g>
+</svg>
