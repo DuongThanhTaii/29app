@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 const TABS = [
   { href: '/camera', icon: 'photo_camera', label: 'MÁY ẢNH' },
-  { href: '/feed', icon: 'grid_view', label: 'LƯĂ TRỮ' },
+  { href: '/feed', icon: 'grid_view', label: 'LƯU TRỮ' },
   { href: '/map', icon: 'map', label: 'BẢN ĐỔ' },
   { href: '/profile', icon: 'person_2', label: 'HỒ SƠ' },
 ] as const;
