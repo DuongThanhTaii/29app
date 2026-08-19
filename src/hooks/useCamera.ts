@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { FILM_FILTERS } from '@/lib/filmFilters';
+import { FILM_FILTERS, FRAME_TYPES } from '@/lib/filmFilters';
 import { FilmType } from '@/types';
 
 export function useCamera() {
@@ -62,8 +62,7 @@ export function useCamera() {
       if (!video) return reject(new Error('Camera chưa sẵn sàng'));
 
       const canvas = document.createElement('canvas');
-      const ratioMap = { 'instax-mini': 3/4, 'instax-square': 1, 'instax-wide': 4/3, 'polaroid-600': 1 };
-      const ratio = ratioMap[frameType];
+      const ratio = FRAME_TYPES[frameType].w / FRAME_TYPES[frameType].h;
       const vw = video.videoWidth || 640;
       const vh = video.videoHeight || 480;
 

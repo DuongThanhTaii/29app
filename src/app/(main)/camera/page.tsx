@@ -115,65 +115,75 @@ export default function CameraPage() {
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#747878' }}>BƯỚC 2/2</span>
         </header>
 
-        <div className="flex-1 flex flex-col items-center justify-center p-4">
-          <div
-            className="relative transition-all"
-            style={{
-              backgroundColor: frameColor,
-              padding: `${FRAME_TYPES[frameType].top}px ${FRAME_TYPES[frameType].sides}px ${FRAME_TYPES[frameType].bottom}px ${FRAME_TYPES[frameType].sides}px`,
-              border: '1px solid rgba(0,0,0,0.1)',
-              borderRadius: '2px',
-              boxShadow: '4px 4px 10px rgba(0,0,0,0.15)',
-              transform: 'scale(0.85)',
-              transformOrigin: 'center',
-            }}
-          >
-            {/* Photo */}
-            <div className={`w-[260px] ${frameAspect} overflow-hidden bg-black`}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={capturedUrl}
-                alt="Ảnh đã chụp"
-                className="w-full h-full object-cover"
-                style={{ filter: FILM_FILTERS[filmType] }}
-              />
-            </div>
-            {/* Caption input */}
-            <div className="absolute left-0 w-full px-6 flex justify-center items-center" style={{ bottom: FRAME_TYPES[frameType].bottom / 2 - 15 }}>
-              <input
-                type="text"
-                value={caption}
-                onChange={e => setCaption(e.target.value.slice(0, 30))}
-                placeholder="Viết ghi chú..."
-                maxLength={30}
-                className="w-full bg-transparent border-none outline-none text-center"
-                style={{
-                  fontFamily: "'Be Vietnam Pro', sans-serif",
-                  fontSize: '18px',
-                  fontStyle: 'italic',
-                  color: captionColor,
-                }}
-              />
-            </div>
-          </div>
-          
-          {/* Color picker */}
-          <div className="flex items-center gap-4 mt-6">
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#444748' }}>MỰC VIẾT:</span>
-            <div className="flex gap-3">
-              {[['#1d1c17', 'Đen'], ['#ffffff', 'Trắng'], ['#b71032', 'Đỏ'], ['#cca730', 'Vàng']].map(([color, label]) => (
-                <button
-                  key={color}
-                  onClick={() => setCaptionColor(color)}
-                  className="w-7 h-7 rounded-full border-2 transition-transform hover:scale-110"
-                  style={{
-                    background: color,
-                    borderColor: captionColor === color ? '#1d1c17' : '#e0d5c5',
-                    boxShadow: captionColor === color ? '0 0 0 2px #f5f0e8, 0 0 0 3px #1d1c17' : 'none',
-                  }}
-                  aria-label={label}
+        <div className="flex-1 flex flex-col items-center justify-center p-6">
+          <div className="w-full max-w-[340px] flex flex-col items-center">
+            <div
+              className="w-full relative transition-all duration-300"
+              style={{
+                backgroundColor: frameColor,
+                paddingTop: `${(FRAME_TYPES[frameType].top / FRAME_TYPES[frameType].w) * 100}%`,
+                paddingBottom: `${(FRAME_TYPES[frameType].bottom / FRAME_TYPES[frameType].w) * 100}%`,
+                paddingLeft: `${(FRAME_TYPES[frameType].sides / FRAME_TYPES[frameType].w) * 100}%`,
+                paddingRight: `${(FRAME_TYPES[frameType].sides / FRAME_TYPES[frameType].w) * 100}%`,
+                border: '1px solid rgba(0,0,0,0.05)',
+                borderRadius: '2px',
+                boxShadow: '4px 4px 15px rgba(0,0,0,0.1)',
+              }}
+            >
+              {/* Photo */}
+              <div className={`w-full ${frameAspect} relative bg-black overflow-hidden`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={capturedUrl}
+                  alt="Ảnh đã chụp"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ filter: FILM_FILTERS[filmType] }}
                 />
-              ))}
+              </div>
+              
+              {/* Caption input */}
+              <div 
+                className="absolute left-0 w-full px-6 flex justify-center items-center" 
+                style={{ 
+                  bottom: `${(FRAME_TYPES[frameType].bottom / FRAME_TYPES[frameType].w / 2) * 100}%`,
+                  transform: 'translateY(50%)'
+                }}
+              >
+                <input
+                  type="text"
+                  value={caption}
+                  onChange={e => setCaption(e.target.value.slice(0, 30))}
+                  placeholder="Viết ghi chú..."
+                  maxLength={30}
+                  className="w-full bg-transparent border-none outline-none text-center"
+                  style={{
+                    fontFamily: "'Be Vietnam Pro', sans-serif",
+                    fontSize: '18px',
+                    fontStyle: 'italic',
+                    color: captionColor,
+                  }}
+                />
+              </div>
+            </div>
+            
+            {/* Color picker */}
+            <div className="flex items-center gap-4 mt-8 w-full justify-center">
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#444748' }}>MỰC VIẾT:</span>
+              <div className="flex gap-4">
+                {[['#1d1c17', 'Đen'], ['#ffffff', 'Trắng'], ['#b71032', 'Đỏ'], ['#cca730', 'Vàng']].map(([color, label]) => (
+                  <button
+                    key={color}
+                    onClick={() => setCaptionColor(color)}
+                    className="w-8 h-8 rounded-full border-2 transition-transform hover:scale-110"
+                    style={{
+                      background: color,
+                      borderColor: captionColor === color ? '#1d1c17' : '#e0d5c5',
+                      boxShadow: captionColor === color ? '0 0 0 2px #f5f0e8, 0 0 0 3px #1d1c17' : 'none',
+                    }}
+                    aria-label={label}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -226,11 +236,10 @@ export default function CameraPage() {
       </header>
 
       {/* Viewfinder Area */}
-      <div className="flex-1 relative flex items-center justify-center overflow-hidden bg-[#111]">
-        {/* Background texture/overlay could go here if requested, currently using dark #111 */}
+      <div className="flex-1 relative flex items-center justify-center overflow-hidden bg-[#111] px-6">
         
         {/* Top controls (Flash, Flip) overlaid on viewfinder area */}
-        <div className="absolute top-4 w-full px-4 flex justify-between items-center z-20">
+        <div className="absolute top-4 w-full px-4 flex justify-between items-center z-20 left-0 right-0">
           <button
             onClick={toggleFlash}
             className="w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-md"
@@ -248,76 +257,84 @@ export default function CameraPage() {
         </div>
 
         {/* Live Polaroid Preview */}
-        <div 
-          className="relative shadow-2xl transition-all duration-300 flex-shrink-0"
-          style={{
-            backgroundColor: frameColor,
-            padding: `${FRAME_TYPES[frameType].top * 0.7}px ${FRAME_TYPES[frameType].sides * 0.7}px ${FRAME_TYPES[frameType].bottom * 0.7}px ${FRAME_TYPES[frameType].sides * 0.7}px`,
-            borderRadius: '2px',
-            transform: 'scale(1)',
-          }}
-        >
-          <div className={`w-[200px] ${frameAspect} relative bg-black overflow-hidden transition-all duration-300`}>
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ filter: filmType !== 'original' ? FILM_FILTERS[filmType] : undefined }}
-            />
-            {/* Grid overlay */}
-            <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none opacity-20">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="border border-white/50" />
-              ))}
-            </div>
-            {cameraError && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/80">
-                <p className="text-white text-center px-4" style={{ fontSize: '14px' }}>{cameraError}</p>
+        <div className="w-full max-w-[360px] flex justify-center items-center">
+          <div 
+            className="w-full relative shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300"
+            style={{
+              backgroundColor: frameColor,
+              paddingTop: `${(FRAME_TYPES[frameType].top / FRAME_TYPES[frameType].w) * 100}%`,
+              paddingBottom: `${(FRAME_TYPES[frameType].bottom / FRAME_TYPES[frameType].w) * 100}%`,
+              paddingLeft: `${(FRAME_TYPES[frameType].sides / FRAME_TYPES[frameType].w) * 100}%`,
+              paddingRight: `${(FRAME_TYPES[frameType].sides / FRAME_TYPES[frameType].w) * 100}%`,
+              borderRadius: '2px',
+            }}
+          >
+            <div className={`w-full ${frameAspect} relative bg-black overflow-hidden transition-all duration-300`}>
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ filter: filmType !== 'original' ? FILM_FILTERS[filmType] : undefined }}
+              />
+              {/* Grid overlay */}
+              <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none opacity-20">
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div key={i} className="border border-white/50" />
+                ))}
               </div>
-            )}
+              {cameraError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/80">
+                  <p className="text-white text-center px-4" style={{ fontSize: '14px' }}>{cameraError}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Controls */}
-      <div className="h-[120px] shrink-0 bg-[#f5f0e8] rounded-t-xl border-t border-outline-variant flex items-center justify-between px-8 relative z-30">
+      <div className="h-[120px] shrink-0 bg-[#f5f0e8] flex items-center px-4 relative z-30">
         
-        {/* Gallery */}
-        <label className="w-12 h-12 rounded-full border-2 border-outline flex items-center justify-center overflow-hidden cursor-pointer active:scale-95 transition-transform bg-white shadow-sm">
-          <span className="material-symbols-outlined text-outline">photo_library</span>
-          <input type="file" accept="image/*" className="hidden" onChange={handleGallery} />
-        </label>
+        {/* Left: Gallery & Camera Menu */}
+        <div className="flex items-center gap-6 w-1/3 justify-start pl-2">
+          <label className="cursor-pointer active:scale-95 transition-transform flex items-center justify-center">
+            <span className="material-symbols-outlined text-[32px] text-[#444]">photo_library</span>
+            <input type="file" accept="image/*" className="hidden" onChange={handleGallery} />
+          </label>
 
-        {/* Camera (Filter) Selector Button */}
-        <button 
-          onClick={() => { setShowCameraMenu(!showCameraMenu); setShowFrameMenu(false); }}
-          className="w-14 h-14 rounded-full border-2 border-outline bg-white flex items-center justify-center active:scale-95 transition-transform shadow-sm relative"
-        >
-          {renderCameraIcon(filmType)}
-          {showCameraMenu && <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full" />}
-        </button>
+          <button 
+            onClick={() => { setShowCameraMenu(!showCameraMenu); setShowFrameMenu(false); }}
+            className="active:scale-95 transition-transform relative flex items-center justify-center p-2"
+          >
+            {renderCameraIcon(filmType)}
+            {showCameraMenu && <div className="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full" />}
+          </button>
+        </div>
 
-        {/* Shutter */}
-        <button
-          onClick={handleCapture}
-          className="w-[72px] h-[72px] rounded-full border-[4px] border-white flex items-center justify-center active:scale-95 transition-transform shadow-lg"
-          aria-label="Chụp ảnh"
-          style={{ background: '#b71032' }}
-        >
-          <div className="w-[85%] h-[85%] rounded-full border-2 border-white/30" />
-        </button>
+        {/* Center: Shutter Button */}
+        <div className="flex items-center justify-center w-1/3">
+          <button
+            onClick={handleCapture}
+            className="w-[76px] h-[76px] rounded-full border-[4px] border-white flex items-center justify-center active:scale-95 transition-transform shadow-lg"
+            aria-label="Chụp ảnh"
+            style={{ background: '#b71032' }}
+          >
+            <div className="w-[85%] h-[85%] rounded-full border-2 border-white/30" />
+          </button>
+        </div>
 
-        {/* Frame Selector Button */}
-        <button 
-          onClick={() => { setShowFrameMenu(!showFrameMenu); setShowCameraMenu(false); }}
-          className="w-14 h-14 rounded-full border-2 border-outline bg-white flex items-center justify-center active:scale-95 transition-transform shadow-sm relative"
-        >
-          {renderFrameIcon(frameType, true)}
-          {showFrameMenu && <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full" />}
-        </button>
-
+        {/* Right: Frame Menu */}
+        <div className="flex items-center gap-6 w-1/3 justify-end pr-2">
+          <button 
+            onClick={() => { setShowFrameMenu(!showFrameMenu); setShowCameraMenu(false); }}
+            className="active:scale-95 transition-transform relative flex items-center justify-center p-2"
+          >
+            {renderFrameIcon(frameType)}
+            {showFrameMenu && <div className="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full" />}
+          </button>
+        </div>
       </div>
 
       {/* Camera Popover Menu */}

@@ -17,10 +17,10 @@ export const FILM_NAMES: Record<FilmType, string> = {
 } as const;
 
 export const FRAME_TYPES: Record<FrameType, { w: number; h: number; css: string; label: string; sides: number; top: number; bottom: number }> = {
-  'instax-mini': { w: 900, h: 1200, css: 'aspect-[3/4]', label: 'Instax Mini', sides: 60, top: 60, bottom: 200 },
-  'instax-square': { w: 900, h: 900, css: 'aspect-square', label: 'Instax Square', sides: 60, top: 60, bottom: 180 },
-  'instax-wide': { w: 1200, h: 900, css: 'aspect-[4/3]', label: 'Instax Wide', sides: 80, top: 60, bottom: 160 },
-  'polaroid-600': { w: 900, h: 900, css: 'aspect-square', label: 'Polaroid 600', sides: 40, top: 40, bottom: 220 },
+  'instax-mini': { w: 460, h: 620, css: 'aspect-[46/62]', label: 'Instax Mini', sides: 40, top: 60, bottom: 180 },
+  'instax-square': { w: 620, h: 620, css: 'aspect-square', label: 'Instax Square', sides: 40, top: 60, bottom: 180 },
+  'instax-wide': { w: 990, h: 620, css: 'aspect-[99/62]', label: 'Instax Wide', sides: 40, top: 60, bottom: 180 },
+  'polaroid-600': { w: 790, h: 790, css: 'aspect-square', label: 'Polaroid 600', sides: 40, top: 40, bottom: 220 },
 } as const;
 
 export const INSTAX_COLORS = [
