@@ -80,7 +80,7 @@ export default function CameraPage() {
 
   const frameAspect = FRAME_TYPES[frameType].css;
 
-  const renderCameraIcon = (type: FilmType, active = false) => {
+  const renderCameraIcon = (type: FilmType) => {
     const props = { size: 32 };
     switch (type) {
       case 'original': return <DigitalIcon {...props} />;
@@ -295,7 +295,7 @@ export default function CameraPage() {
           onClick={() => { setShowCameraMenu(!showCameraMenu); setShowFrameMenu(false); }}
           className="w-14 h-14 rounded-full border-2 border-outline bg-white flex items-center justify-center active:scale-95 transition-transform shadow-sm relative"
         >
-          {renderCameraIcon(filmType, true)}
+          {renderCameraIcon(filmType)}
           {showCameraMenu && <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full" />}
         </button>
 
